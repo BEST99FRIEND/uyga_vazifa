@@ -2,6 +2,18 @@ from django.shortcuts import render,redirect
 from main.models import Todo
 
 def home(request):
+    if request.method == "POST":
+        print(request.POST)
+        title = request.POST.get("title")
+        desc = request.POST.get("desc")
+        status = request.POST.get("status")
+        print(title,desc,status)
+        Todo.objects.create(
+            title=title,
+            desc=desc,
+            tatus=status
+        )
+        return redirect("/")
     data = {
         'todos':Todo.objects.all()
     }

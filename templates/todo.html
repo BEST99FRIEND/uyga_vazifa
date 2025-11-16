@@ -73,6 +73,17 @@
         {% csrf_token %}
         <label for="title">Title</label>
         <input type="text" name="title" placeholder="title" class="form-control" required/><br />
+
+        <label for="desc">Description</label>
+        <textarea name="desc" placeholder="description" class="form-control" required></textarea><br />
+
+        <label for="status">Status</label>
+        <select name="status" class="form-control" required>
+          <option value="new">New</option>
+          <option value="in_progress">In progress</option>
+          <option value="done">Done</option>
+        </select><br />
+
         <center>
         <button type="submit" class="btn btn-default">Topshirish</button>
       </center>
