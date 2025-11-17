@@ -40,7 +40,8 @@ def edit_todo(request, todo_id):
     
     if request.method == "POST":
         todo.title = request.POST.get('title')
-        todo.description = request.POST.get('description')
+        todo.desc = request.POST.get('desc')
+        todo.status = request.POST.get('status')
         todo.save()
         return redirect("/")
     
