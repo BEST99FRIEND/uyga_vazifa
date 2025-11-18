@@ -40,41 +40,33 @@
 
 </head>
 
-<body  class="container-fluid">
+<body class="container-fluid">
 
-    {% if todo %}
-        <form action="/about/{{todo.id}}/" method="post">
-            <center class="row">
-                <h1><i>Kundalik ishlar</i></h1>
-                <hr />
+  {% if todo %}
+    <form action="/about/{{todo.id}}/" method="post">
+      <center class="row">
+        <h1><i>Kundalik ishlar</i></h1>
+        <hr/>
+      </center>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <center>
+              <b>{{ todo.title }}</b>
             </center>
-            <div class="row">
-                <div class="col-md-8">
-                            <div class="card">
-
-                                <center>
-                                    <b>{{ todo.title }}</b>
-                                </center>
-                                
-                                <hr/>
-                                Date: {{ todo.created_at|date:"d-m-Y" }}
-                                <hr/>
-                                {{ todo.desc }}
-                                <hr/>
-                                {{ todo.get_status_display }}
-                                <br/>
-                        
-                            </div>
-
-                </div>
-
-                <div class="col-md-1">
-                </div>
-            
-            </div>
-        </form>
+            <hr/>
+            Date: {{ todo.created_at|date:"d-m-Y" }}
+            <hr/>
+            {{ todo.desc }}
+            <hr/>
+            {{ todo.get_status_display }}
+            <br/>
+          </div>
+        </div>
+          <div class="col-md-1"></div>
+      </div>
+    </form>
     {% endif %}
-
 </body>
 
 </html>

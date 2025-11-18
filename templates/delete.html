@@ -6,19 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
-    {% if message %}
+  {% if message %}
     <p> {{message}} </p>
-    {% endif %}
+  {% endif %}
 
-    {% if todo %}
-        <form action="/delete/{{todo.id}}/" method="post">
-            {% csrf_token %}
-            <p>{{todo.title}} ni rostdan ham o'chirmoqchimisiz?</p>
-            <button type="submit">Ha, o'chirish</button>
-            <a href="/"><button type="button">Yo'q, bekor qilish</button></a>
-        </form>
+  {% if todo %}
+    <form action="/delete/{{todo.id}}/" method="post">
+      {% csrf_token %}
+      <p>{{todo.title}} ni rostdan ham o'chirmoqchimisiz?</p>
+      <button type="submit">Ha, o'chirish</button>
+      <a href="/"><button type="button">Yo'q, bekor qilish</button></a>
+    </form>
     {% endif %}
-
 </body>
 </html>
