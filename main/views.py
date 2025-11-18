@@ -46,3 +46,12 @@ def edit_todo(request, todo_id):
         return redirect("/")
     
     return render(request,"edit.html", {"todo": todo})
+
+def about_todo(request, todo_id):
+    try:
+        todo = Todo.objects.get(id=todo_id)
+    except:
+        return render(request,'about.html',{'message': 'Bunday topshiriq mavjud emas'})
+    
+
+    return render(request,'about.html', {"todo":todo})
