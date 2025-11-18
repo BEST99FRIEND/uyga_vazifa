@@ -45,7 +45,7 @@
   {% if todo %}
     <form action="/about/{{todo.id}}/" method="post">
       <center class="row">
-        <h1><i>Kundalik ishlar</i></h1>
+        <h1><i>{{ todo.title }}</i></h1>
         <hr/>
       </center>
       <div class="row">
@@ -61,9 +61,10 @@
             <hr/>
             {{ todo.get_status_display }}
             <br/>
+            <a href="/"><button type="button" class="btn btn-primary" style="margin-top: 10px;"><span class="glyphicon glyphicon-align-back"></span>Ortga</button></a>
           </div>
         </div>
-          <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
       </div>
     </form>
     {% endif %}
