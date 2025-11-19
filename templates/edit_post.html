@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Postni tahrirlash</title>
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            width: 400px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #0a3d62;
+            margin-bottom: 25px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            background: #3c6382;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0a3d62;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Postni tahrirlash</h2>
+        <input type="text" placeholder="Sarlavha" value="Oldingi sarlavha">
+        <textarea rows="5" placeholder="Matn">Oldingi matn shu yerda...</textarea>
+        <button type="submit">Saqlash</button>
+    </form>
+</body>
+</html>

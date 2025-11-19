@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from main.models import Todo
+from main.models import Post
 
 def home(request):
     if request.method == "POST":
@@ -8,50 +8,56 @@ def home(request):
         desc = request.POST.get("desc")
         status = request.POST.get("status")
         print(title,desc,status)
-        Todo.objects.create(
+        Post.objects.create(
             title=title,
             desc=desc,
             tatus=status
         )
         return redirect("/")
     data = {
-        'todos':Todo.objects.all()
+        'posts':Post.objects.all()
     }
-    return render(request, 'todo.html', context=data)
+    return render(request, 'index.html', context=data)
 
-def delete_todo(request, todo_id):
+def delete_post(request, todo_id):
     try:
-        todo = Todo.objects.get(id=todo_id)
+        posts = Post.objects.get(id=todo_id)
     except:
-        return render(request,'delete.html',{'message': 'Bunday topshiriq mavjud emas'})
+        return render(request,'delete_post.html',{'message': 'Bunday topshiriq mavjud emas'})
 
     if request.method == "POST":
-        todo.delete()
+        posts.delete()
         return redirect("/")
 
 
-    return render(request, "delete.html", {'todo': todo})
+    return render(request, "delete_post.html", {'post': posts})
 
-def edit_todo(request, todo_id):
+def edit_post(request, todo_id):
     try:
-        todo = Todo.objects.get(id=todo_id)
+        posts = Post.objects.get(id=todo_id)
     except:
-        return render(request,'edit.html',{'message': 'Bunday topshiriq mavjud emas'})
+        return render(request,'edit_post.html',{'message': 'Bunday topshiriq mavjud emas'})
     
     if request.method == "POST":
-        todo.title = request.POST.get('title')
-        todo.desc = request.POST.get('desc')
-        todo.status = request.POST.get('status')
-        todo.save()
+        posts.title = request.POST.get('title')
+        posts.desc = request.POST.get('desc')
+        posts.status = request.POST.get('status')
+        posts.save()
         return redirect("/")
     
-    return render(request,"edit.html", {"todo": todo})
+    return render(request,"edit_post.html", {"post": posts})
 
-def about_todo(request, todo_id):
+def detail_post(request, todo_id):
     try:
-        todo = Todo.objects.get(id=todo_id)
+        posts = Post.objects.get(id=todo_id)
     except:
-        return render(request,'about.html',{'message': 'Bunday topshiriq mavjud emas'})
+        return render(request,'detail_post.html',{'message': 'Bunday topshiriq mavjud emas'})
     
 
-    return render(request,'about.html', {"todo":todo})
+    return render(request,'detail_post.html', {"todo":posts})
+
+def create_post(request):
+
+    return render(request,'create_post.html')
+
+
